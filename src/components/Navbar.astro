@@ -1,0 +1,83 @@
+---
+const links = [
+  { label: "Sobre mí", href: "/sobremi" },
+  { label: "Contacto", href: "/about" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<main class="px-6 md:px-20 py-6 md:py-10">
+  <nav class="flex justify-between items-center">
+    <div>
+      <h1 class="text-lg md:text-2xl font-bold">MiguelRequenaR</h1>
+    </div>
+
+    <ul class="hidden md:flex gap-5">
+      {links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class={currentPath === link.href ? "underline font-bold" : ""}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <button id="menu-btn" class="md:hidden" aria-label="Abrir menú">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 z-50 bg-slate-900 flex flex-col translate-x-full transition-transform duration-300 ease-in-out md:hidden"
+  >
+    <div class="flex justify-between items-center p-6">
+      <span class="text-xl font-bold text-white">MiguelRequenaR</span>
+      <button id="close-btn" class="text-white" aria-label="Cerrar menú">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <nav class="flex-1 flex flex-col items-center justify-center">
+      <ul class="flex flex-col gap-8 text-white text-xl font-semibold">
+        {links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class={currentPath === link.href ? "text-sky-300" : "text-white"}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</main>
+
+<script>
+  const menuBtn = document.getElementById("menu-btn");
+  const closeBtn = document.getElementById("close-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  menuBtn?.addEventListener("click", () => {
+    mobileMenu?.classList.remove("translate-x-full");
+  });
+
+  closeBtn?.addEventListener("click", () => {
+    mobileMenu?.classList.add("translate-x-full");
+  });
+
+  mobileMenu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.add("translate-x-full");
+    });
+  });
+</script>

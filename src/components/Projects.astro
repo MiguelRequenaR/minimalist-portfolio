@@ -1,0 +1,65 @@
+---
+const projects = [
+  {
+    name: "ordee.com",
+    image: "/images/projects/ordee.webp",
+  },
+  {
+    name: "vitalight.com",
+    image: "/images/projects/vitalight.webp",
+  },
+  {
+    name: "nidoperulina.com",
+    image: "/images/projects/nidoperulina.webp",
+  },
+  {
+    name: "mlstreaming.com",
+    image: "/images/projects/mlstreaming.webp",
+  },
+  {
+    name: "tutechoahora.com",
+    image: "/images/projects/tutechoahora.webp",
+  },
+  {
+    name: "wildhorsecarwash.com",
+    image: "/images/projects/wildhorse.webp",
+  },
+  {
+    name: "andinagroup.com",
+    image: "/images/projects/andinagroup.webp",
+  },
+  {
+    name: "sistemacp-360.com",
+    image: "/images/projects/landing360.webp",
+  },
+  {
+    name: "industriarlc.com",
+    image: "/images/projects/industriarlc.webp",
+  },
+  {
+    name: "rlcacademy.com",
+    image: "/images/projects/rlcacademy.webp",
+  },
+  {
+    name: "rlcacademyaulavirtual.com",
+    image: "/images/projects/rlcacademyaula.webp",
+  },
+  {
+    name: "mecatronixperu.com",
+    image: "/images/projects/mecatronix.webp",
+  }
+]
+---
+
+<main class="px-4 md:px-20 py-10">
+  <div class="grid grid-cols-1 gap-10 md:grid-cols-2">
+    {
+      projects.map((project) => (
+        <div class="pt-5 pb-20">
+          <img src={project.image} alt={project.name} class="w-full h-full" />
+          <h3 class="mt-5 text-xl text-left">{project.name}</h3>
+        </div>
+      ))
+    }
+  </div>
+</main>
