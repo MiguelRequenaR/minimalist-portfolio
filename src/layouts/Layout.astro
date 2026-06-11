@@ -2,6 +2,10 @@
 import '../styles/global.css';
 import Navbar from '@/components/ui/Navbar.astro';
 import Footer from '@/components/ui/Footer.astro';
+
+const currentPath = Astro.url.pathname;
+const isContact = currentPath === '/contact';
+const pageBg = isContact ? 'bg-[#f46c38]' : '';
 ---
 
 <!doctype html>
@@ -13,19 +17,17 @@ import Footer from '@/components/ui/Footer.astro';
 		<meta name="generator" content={Astro.generator} />
 		<title>MiguelRequenaR</title>
 	</head>
-	<body>
-		<Navbar />
+	<body class={`flex flex-col min-h-screen m-0 w-full ${pageBg}`}>
+		<Navbar isContact={isContact} />
 		<slot />
-		<Footer />
+		<Footer isContact={isContact} />
 		<script src="../scripts/lenis.js"></script>
 	</body>
 </html>
 
 <style>
-	html,
-	body {
+	html {
 		margin: 0;
 		width: 100%;
-		height: 100%;
 	}
 </style>

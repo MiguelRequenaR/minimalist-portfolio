@@ -2,9 +2,9 @@
 const year = new Date().getFullYear();
 ---
 
-<section class="py-30">
+<section class={`py-30 ${Astro.props.isContact ? "text-white" : "text-gray-500"}`}>
   <footer>
-    <p class="text-center text-gray-500">
+    <p class="text-center">
       &copy; {year} MiguelRequenaR.
     </p>
   </footer>
