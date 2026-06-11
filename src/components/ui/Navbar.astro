@@ -1,16 +1,18 @@
 ---
 const links = [
-  { label: "Sobre mí", href: "/sobremi" },
-  { label: "Contacto", href: "/about" },
+  { label: "Sobre mí", href: "/about" },
+  { label: "Contacto", href: "/contact" },
 ];
 
 const currentPath = Astro.url.pathname;
 ---
 
-<main class="px-6 md:px-20 py-6 md:py-10">
+<section class="px-6 md:px-20 py-6 md:py-10">
   <nav class="flex justify-between items-center">
     <div>
-      <h1 class="text-lg md:text-2xl font-bold">MiguelRequenaR</h1>
+      <a href="/">
+        <h1 class="text-lg md:text-2xl font-bold">MiguelRequenaR</h1>
+      </a>
     </div>
 
     <ul class="hidden md:flex gap-5">
@@ -60,7 +62,7 @@ const currentPath = Astro.url.pathname;
       </ul>
     </nav>
   </div>
-</main>
+</section>
 
 <script>
   const menuBtn = document.getElementById("menu-btn");
