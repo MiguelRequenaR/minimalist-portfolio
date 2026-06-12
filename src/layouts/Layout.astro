@@ -1,10 +1,10 @@
 ---
-import '../styles/global.css';
-import Navbar from '@/components/ui/Navbar.astro';
-import Footer from '@/components/ui/Footer.astro';
+import "../styles/global.css";
+import Navbar from "@/components/ui/Navbar.astro";
+import Footer from "@/components/ui/Footer.astro";
 const currentPath = Astro.url.pathname;
-const isContact = currentPath === '/contact';
-const pageBg = isContact ? 'bg-orange-brand' : '';
+const isContact = currentPath === "/contact";
+const pageBg = isContact ? "bg-orange-brand" : "";
 ---
 
 <!doctype html>
@@ -16,7 +16,10 @@ const pageBg = isContact ? 'bg-orange-brand' : '';
 		<meta name="generator" content={Astro.generator} />
 		<title>MiguelRequenaR</title>
 	</head>
-	<body class={`flex flex-col min-h-screen m-0 w-full ${pageBg}`}>
+	<body
+		class="flex flex-col min-h-screen m-0 w-full"
+		style={isContact ? "background-color: #f46c38;" : ""}
+	>
 		<Navbar isContact={isContact} />
 		<slot />
 		<Footer isContact={isContact} />
