@@ -1,1 +1,13 @@
 @import "tailwindcss";
+@theme {
+  --color-orange-brand: #f46c38;
+  --font-sans: "hasta-grotesk", sans-serif;
+}
+
+@font-face {
+  font-family: "hasta-grotesk";
+  src: url("/fonts/hasta-grotesk.ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
