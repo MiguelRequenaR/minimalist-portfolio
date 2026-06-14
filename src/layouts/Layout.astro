@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from "astro:transitions"
 import "../styles/global.css";
 import Navbar from "@/components/ui/Navbar.astro";
 import Footer from "@/components/ui/Footer.astro";
@@ -9,11 +10,19 @@ const isContact = currentPath === "/contact" || currentPath === "/contact/";
 <!doctype html>
 <html lang="es">
 	<head>
+		<ClientRouter />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/png" href="/logoMR.png" />
+		<link rel="preload" href="/fonts/hasta-grotesk.ttf" as="font" type="font/ttf" crossorigin />
 		<meta name="generator" content={Astro.generator} />
 		<title>MiguelRequenaR</title>
+		<script is:inline>
+			document.addEventListener('astro:before-swap', (e) => {
+				const splash = e.newDocument?.getElementById('splash-screen');
+				if (splash) splash.remove();
+			});
+		</script>
 	</head>
 	<body
 		class="flex flex-col min-h-screen m-0 w-full"

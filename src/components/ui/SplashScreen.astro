@@ -17,7 +17,7 @@
     background: #f46c38;
     align-items: center;
     justify-content: center;
-  };
+  }
 </style>
 
 <script>
@@ -26,21 +26,37 @@
   const splash = document.getElementById("splash-screen");
   const text = splash?.querySelector("span") ?? null;
 
-  const tl = gsap.timeline({ delay: 1 });
+  const splashShown = sessionStorage.getItem("splashShown");
 
-  tl.to(splash, {
-    y: "-100%",
-    duration: 1.2,
-    ease: "power3.inOut",
-    onComplete: () => {
-      splash?.remove();
-    }
-  })
+  if (splashShown) {
+    splash?.remove();
+  } else {
+    sessionStorage.setItem("splashShown", "true");
 
-  tl.to(text, {
-    scale: 3,
-    duration: 1.2,
-    ease: "power3.inOut",
-  }, 0);
+    gsap.set(text, { scale: 0.5, opacity: 0 });
 
+    const tl = gsap.timeline({ delay: 0.3 });
+
+    tl.to(text, {
+      scale: 1,
+      opacity: 1,
+      duration: 0.7,
+      ease: "back.out(1.7)",
+    });
+
+    tl.to(splash, {
+      y: "-100%",
+      duration: 1.2,
+      ease: "power3.inOut",
+      onComplete: () => {
+        splash?.remove();
+      }
+    }, "+=0.8");
+
+    tl.to(text, {
+      scale: 3,
+      duration: 1.2,
+      ease: "power3.inOut",
+    }, "<");
+  }
 </script>
