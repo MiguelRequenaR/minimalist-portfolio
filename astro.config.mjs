@@ -1,10 +1,13 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
 import { fileURLToPath } from 'node:url';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://miguelrequenar.netlify.app',
+  integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
     resolve: {
@@ -12,7 +15,7 @@ export default defineConfig({
         '@': fileURLToPath(new URL('./src', import.meta.url)),
         '@components': fileURLToPath(new URL('./src/components', import.meta.url)),
         '@pages': fileURLToPath(new URL('./src/pages', import.meta.url)),
-      }
-    }
-  }
+      },
+    },
+  },
 });

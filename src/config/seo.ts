@@ -1,0 +1,33 @@
+export const SITE = {
+  url: "https://miguelrequenar.netlify.app",
+  title: "MiguelRequenaR",
+  shortTitle: "MR",
+  description:
+    "Portfolio de Miguel Requena — desarrollador web especializado en Astro, Tailwind CSS y experiencias digitales modernas.",
+  author: "Miguel Requena",
+  lang: "es",
+  locale: "es_ES",
+  ogImage: "/images/ogImage.png",
+  twitterHandle: "@miguelrequenar",
+  keywords: [
+    "desarrollador web",
+    "portfolio",
+    "Miguel Requena",
+    "Astro",
+    "Tailwind CSS",
+    "frontend",
+    "javascript",
+    "typescript",
+    "react",
+    "nextjs",
+    "vuejs",
+    "angular",
+    "Arquitectura de Software",
+    "Desarrollador Fullstack",
+  ],
+  sameAs: [
+    "hhttps://github.com/MiguelRequenaR",
+    "https://www.linkedin.com/in/miguelangelrequenaramos/",
+    "https://x.com/MiguelParis11",
+  ],
+};

@@ -5,7 +5,12 @@ import AboutParallax from "@/components/about/AboutParallax.astro";
 import AboutPage from "@/components/about/AboutPage.astro";
 ---
 
-<Layout>
+<Layout
+  title="Sobre mí"
+  description="Conoce más sobre Miguel Requena, su trayectoria y proyectos como desarrollador web."
+  canonicalURL={`${Astro.url}`}
+  type="article"
+>
   <main>
     <HeroAbout />
     <AboutParallax />

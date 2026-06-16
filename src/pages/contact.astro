@@ -2,7 +2,12 @@
 import Layout from "../layouts/Layout.astro";
 import ContactPage from "@/components/contact/ContactPage.astro";
 ---
-<Layout>
+<Layout
+  title="Contacto"
+  description="Ponte en contacto con Miguel Requena para colaboraciones, proyectos o consultas."
+  canonicalURL={`${Astro.url}`}
+  type="website"
+>
   <main class="flex-1 flex flex-col">
     <ContactPage />
   </main>
